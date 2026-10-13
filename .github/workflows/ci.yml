@@ -2,7 +2,7 @@ name: "HTML Project CI"
 
 on:
   push:
-    branches: [ "main", "feature/test-branch" ] # Run on push to main or test-branch
+    branches: [ "main" ] # Run on push to main or test-branch
   pull_request:
     branches: [ "main" ]
 
