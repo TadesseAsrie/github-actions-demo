@@ -1,21 +1,24 @@
-name: Simple Learning Workflow
+name: HTML Project CI
 
 on:
   push:
     branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
-  run-my-test:
+  check-html:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Run Test Script
-        run: npm test
+      - name: Verify HTML File Exists (Intentionally Broken)
+        run: |
+          if [ -f "wrong-file.html" ]; then
+            echo "File found successfully!"
+          else
+            echo "Error: Required file wrong-file.html is missing!"
+            exit 1 # This explicitly tells GitHub Actions to fail the build
+          fi
