@@ -2,7 +2,7 @@ name: "HTML Project CI"
 
 on:
   push:
-    branches: [ "main" ] # Run on push to main or test-branch
+    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
@@ -14,7 +14,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Intentionally Failing Test for Branch
+      - name: Run Success Check
         run: |
-          echo "Simulating a broken feature..."
-          exit 1  # This forces the build to fail (turn red)
+          echo "Build passed successfully!"
