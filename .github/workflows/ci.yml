@@ -1,8 +1,8 @@
-name: HTML Project CI
+name: "HTML Project CI"
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "feature/test-branch" ] # Run on push to main or test-branch
   pull_request:
     branches: [ "main" ]
 
@@ -14,11 +14,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Verify HTML File Exists
+      - name: Intentionally Failing Test for Branch
         run: |
-          if [ -f "index.html" ]; then
-            echo "index.html found successfully!"
-          else
-            echo "Error: index.html is missing!"
-            exit 1
-          fi
+          echo "Simulating a broken feature..."
+          exit 1  # This forces the build to fail (turn red)
