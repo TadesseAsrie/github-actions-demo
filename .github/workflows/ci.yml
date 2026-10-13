@@ -14,11 +14,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Verify HTML File Exists (Intentionally Broken)
+      - name: Verify HTML File Exists
         run: |
-          if [ -f "wrong-file.html" ]; then
-            echo "File found successfully!"
+          if [ -f "index.html" ]; then
+            echo "index.html found successfully!"
           else
-            echo "Error: Required file wrong-file.html is missing!"
-            exit 1 # This explicitly tells GitHub Actions to fail the build
+            echo "Error: index.html is missing!"
+            exit 1
           fi
