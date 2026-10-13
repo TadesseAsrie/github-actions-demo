@@ -1,4 +1,4 @@
-name: HTML Project CI
+name: "HTML Project CI"
 
 on:
   push:
